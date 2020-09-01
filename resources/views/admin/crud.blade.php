@@ -46,6 +46,7 @@
                               <td>{{ $c->alamat }}</td>
                               <td>{{ $c->jurusan }}</td>
                               <td>
+                                
                                 <a href="#" class="btn btn-icon btn-primary" data-toggle="tooltip" title="Edit"><i class="far fa-edit"></i></a>
                                 <a href="#" class="btn btn-icon btn-danger swal-confirm" data-toggle="tooltip" title="hapus"><i class="far fa-edit"></i></a>
                               
