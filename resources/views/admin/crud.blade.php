@@ -47,8 +47,8 @@
                               <td>{{ $c->jurusan }}</td>
                               <td>
                                 <a href="#" class="btn btn-icon btn-primary" data-toggle="tooltip" title="Edit"><i class="far fa-edit"></i></a>
-                                <a href="#" class="badge badge-danger confirmation" id="swal-6">delete</a>
-                                {{-- <button class="btn btn-primary" id="swal-6">Launch</button> --}}
+                                <a href="#" class="btn btn-icon btn-danger swal-confirm" data-toggle="tooltip" title="hapus"><i class="far fa-edit"></i></a>
+                              
                               </td>
                             </tr>
                           
@@ -63,6 +63,7 @@
         </div>
     </div>
 
+    {{-- modal tambah data --}}
     @section('modal')
     <div class="modal fade" tabindex="-1" role="dialog" id="exampleModal">
         <div class="modal-dialog" role="document">
@@ -122,29 +123,31 @@
 @endsection
 
 @push('page-script')
-  <script src="{{ asset('../node_modules/sweetalert/dist/sweetalert.min.js') }}"></script>
+<script src="{{ asset('sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
+
 @endpush
 
 @push('after-script')
-  {{-- <script src="{{ asset('assets/js/page/modules-sweetalert.js') }}"></script> --}}
+  
   <script>
-    $(".confirmation").click(function() {
-      swal({
-          title: 'Are you sure?',
-          text: 'Once deleted, you will not be able to recover this imaginary file!',
-          icon: 'warning',
-          buttons: true,
-          dangerMode: true,
-        })
-        .then((willDelete) => {
-          if (willDelete) {
-          swal('Poof! Your imaginary file has been deleted!', {
-            icon: 'success',
-          });
-          } else {
-          swal('Your imaginary file is safe!');
-          }
-        });
+    $(".swal-confirm").click(function() {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.value) {
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }
+      })
     });
   </script>
 @endpush
