@@ -21,7 +21,7 @@ class CrudController extends Controller
      */
     public function index()
     {
-        $cruds = Crud::all();
+        $cruds = Crud::paginate(4);
         return view('admin.crud', ['cruds' => $cruds]);
     }
 
