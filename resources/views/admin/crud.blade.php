@@ -46,9 +46,14 @@
                               <td>{{ $c->alamat }}</td>
                               <td>{{ $c->jurusan }}</td>
                               <td>
-                                
+
                                 <a href="#" class="btn btn-icon btn-primary" data-toggle="tooltip" title="Edit"><i class="far fa-edit"></i></a>
-                                <a href="#" class="btn btn-icon btn-danger swal-confirm" data-toggle="tooltip" title="hapus"><i class="far fa-edit"></i></a>
+                                <a href="#" data-id="{{ $c->id }}" class="btn btn-icon btn-danger swal-confirm" data-toggle="tooltip" title="hapus"><i class="far fa-edit"></i>
+                                <form action="{{ route('crud.destroy',$c->id) }}" id="delete{{ $c->id }}" method="POST">
+                                  @csrf
+                                  @method('delete')
+                                  </form>
+                                </a>
                               
                               </td>
                             </tr>
@@ -131,9 +136,10 @@
 @push('after-script')
   
   <script>
-    $(".swal-confirm").click(function() {
+    $(".swal-confirm").click(function(e) {
+      id = e.target.dataset.id;
       Swal.fire({
-        title: 'Are you sure?',
+        title: 'Are you sure?' + id,
         text: "You won't be able to revert this!",
         icon: 'warning',
         showCancelButton: true,
@@ -147,6 +153,7 @@
             'Your file has been deleted.',
             'success'
           )
+          $(`#delete${id}`).submit();
         }
       })
     });
