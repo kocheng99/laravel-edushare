@@ -36,10 +36,12 @@
                             <th>Jurusan</th>
                             <th>Action</th>
                           </tr>
-                          @foreach ($cruds as $c)
+                          {{-- @foreach ($cruds as $c) --}}
+                          @foreach ($cruds as $no => $c)
                               
                             <tr>
-                              <td>{{ $loop->iteration }}</td>
+                              {{-- <td>{{ $loop->iteration }}</td> --}}
+                              <td>{{ $cruds->firstItem()+$no }}</td>
                               <td>{{ $c->nama }}</td>
                               <td>{{ $c->nim }}</td>
                               <td>{{ $c->email }}</td>
@@ -61,6 +63,7 @@
                           @endforeach
                           
                         </table>
+                        {{ $cruds->links() }}
                       </div>
                     </div>
                     
