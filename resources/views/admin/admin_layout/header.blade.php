@@ -205,7 +205,7 @@
           <a href="{{ route ('admin.users.index')}}" class="dropdown-item has-icon">
             <i class="fas fa-users-cog"></i> User Management
           </a>
-          @endcan
+          @endcan 
             
           <a href="features-settings.html" class="dropdown-item has-icon">
             <i class="fas fa-cog"></i> Settings
