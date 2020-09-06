@@ -24,10 +24,18 @@
               <li><a class="nav-link" href="#">Posts</a></li>
             </ul>
           </li>
+
+          @can('manage-users')
           <li class=" @if (Request::segment(1) == 'crud') active @endif ">
             <a href="{{ route('crud.index') }}" class="nav-link "><i class="fas fa-database">
-          </i><span>CRUD</span></a></li>
+            </i><span>CRUD</span></a></li>
+          @endcan
           
+          <li class=" @if (Request::segment(1) == 'user' && Request::segment(2) == 'post') active @endif">
+            <a href="{{ route('post.index') }}" class="nav-link "><i class="fas fa-database">
+            </i><span>Buat Postingan</span></a>
+          </li>
+
           {{-- <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank Page</span></a></li> --}}
           {{-- <li class="nav-item dropdown">
             <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Bootstrap</span></a>
