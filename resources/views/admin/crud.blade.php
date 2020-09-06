@@ -10,7 +10,7 @@
                     
                     {{-- <div class="row">
                     </div> --}}
-                    <div class="card-header">
+                    <div class="card-header"> 
                       {{-- <h4>CRUD Table</h4> --}}
                       <h4><button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Tambah Data</button></h4>
                       <div class="card-header-form">
@@ -20,7 +20,7 @@
                             <div class="input-group-btn">
                               <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                             </div>
-                          </div>
+                          </div> 
                         </form>
                       </div>
                     </div>
@@ -36,7 +36,7 @@
                             <th>Jurusan</th>
                             <th>Action</th>
                           </tr>
-                          {{-- @foreach ($cruds as $c) --}}
+                          {{-- @foreach ($cruds as $c) --}} 
                           @foreach ($cruds as $no => $c)
                               
                             <tr>
