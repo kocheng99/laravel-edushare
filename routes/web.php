@@ -33,4 +33,5 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 });
 
 Route::resource('/crud', 'Crud\CrudController');
-Route::resource('user/post', 'Post\PostController');
+Route::resource('dashboard/post', 'Post\PostController');
+Route::resource('dashboard/berandapost', 'Post\BerandaPostController');
