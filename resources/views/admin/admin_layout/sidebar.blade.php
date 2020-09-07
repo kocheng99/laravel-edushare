@@ -33,7 +33,7 @@
           
           <li class=" @if (Request::segment(1) == 'user' && Request::segment(2) == 'post') active @endif">
             <a href="{{ route('post.index') }}" class="nav-link "><i class="fas fa-database">
-            </i><span>Buat Postingan</span></a>
+            </i><span>Postinganku</span></a>
           </li>
 
           {{-- <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank Page</span></a></li> --}}
