@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -16,15 +17,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::all();
+        $post = Post::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->get();
+        // $post = Post::all();
         $user = User::all();
-        // $users = User::with(['post'])->orderBy('created_at', 'DESC')->get();
-        // // return response()->json(['data' => $users]);
-        // dd($post);
-        // echo "</br>Nama  : " . $user->name;
-        // foreach ($post as $p) {
-        //     echo "</br>Judul post :" . $p->judul_post;
-        // }
+
+        // dd($post[0]->judul_post);
+
         return view('admin.general.index', compact('post', 'user'));
     }
 
