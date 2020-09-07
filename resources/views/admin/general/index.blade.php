@@ -28,9 +28,9 @@
                           <table class="table table-striped">
                             <tr>
                               <th>No</th>
-                              <th>Nama User</th>
                               <th>Judul Post</th>
                               <th>Deskripsi Post</th>
+                              <th>Tanggal Buat</th>
                               <th>Action</th>
                             </tr>
                             {{-- @foreach ($cruds as $c) --}}
@@ -39,9 +39,11 @@
                               <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 {{-- <td>{{ $users->firstItem()+$no }}</td> --}}
-                                <td>{{ $posts->user->name }}</td>
+                                {{-- <td></td> --}}
+                                {{-- <td>{{ $post->user->name }}</td> --}}
                                 <td>{{ $posts->judul_post }}</td>
                                 <td>{{ $posts->deskripsi_post }}</td>
+                                <td>{{ $posts->created_at->format('d-m-Y') }}</td>
                                 <td>
   
                                   <a href="#" class="btn btn-icon btn-primary" data-toggle="tooltip" title="Edit"><i class="far fa-edit"></i></a>
