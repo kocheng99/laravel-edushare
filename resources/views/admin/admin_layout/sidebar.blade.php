@@ -31,9 +31,14 @@
             </i><span>CRUD</span></a></li>
           @endcan
           
-          <li class=" @if (Request::segment(1) == 'user' && Request::segment(2) == 'post') active @endif">
-            <a href="{{ route('post.index') }}" class="nav-link "><i class="fas fa-database">
+          <li class=" @if (Request::segment(1) == 'dashboard' && Request::segment(2) == 'post') active @endif">
+            <a href="{{ route('post.index') }}" class="nav-link "><i class="fas fa-book">
             </i><span>Postinganku</span></a>
+          </li>
+
+          <li class=" @if (Request::segment(1) == 'dashboard' && Request::segment(2) == 'berandapost') active @endif">
+            <a href="{{ route('berandapost.index') }}" class="nav-link "><i class="fas fa-blog">
+            </i><span>Beranda Post</span></a>
           </li>
 
           {{-- <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank Page</span></a></li> --}}
